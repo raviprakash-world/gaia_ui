@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import BadgeIcon from '@mui/icons-material/Badge';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -48,37 +47,8 @@ const Left = styled.div`
   color: #232421;
 `;
 
-const Middle = styled.div`
-  flex: 3;
-  display: flex;
-  justify-content: center;
-`;
 
-const Input = styled.input`
-  height: 32px;
-  width: 20rem;
-  border: none;
-  padding: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
 
-  &:focus {
-    outline: none;
-  }
-`;
-
-const Searchicon = styled(SearchIcon)`
-  background-color: white;
-  height: 40px;
-  color: #05060c;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  position: relative;
-  top: 0;
-  right: -2px;
-  padding: 16px;
-  cursor: pointer;
-`;
 
 const Right = styled.div`
   flex: 1;
@@ -156,8 +126,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const history = useNavigate();
-  const value = useSelector((state) => state.search.searchValue);
-  const [search, setSearch] = useState(value);
+ 
   const [showSmallerNavbar, setShowSmallerNavbar] = useState(false);
   const [perfumesSelect, setPerfumesSelect] = useState(false);
 
@@ -177,33 +146,7 @@ const Navbar = () => {
             Gaia
           </p>
         </Left>
-        {/* <Middle>
-          <Input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="search..."
-          />
-          {search.length > 1 ? (
-            <Link to={`/products/name/${search.toLowerCase()}`}>
-              <Searchicon
-                onClick={() => {
-                  dispatch({ type: "addValue", value: search });
-                }}
-                style={{ fontSize: 32 }}
-              />
-            </Link>
-          ) : (
-            <Link to={`/products/`}>
-              <Searchicon
-                onClick={() => {
-                  dispatch({ type: "addValue", value: search });
-                }}
-                style={{ fontSize: 32 }}
-              />
-            </Link>
-          )}
-        </Middle> */}
+        
         <Right>
             {user.currentUser && (
             <>
