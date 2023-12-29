@@ -401,7 +401,7 @@ const Footer = () => {
         </InnerContainer>
       </MainContainer>
       <OwnerDiv>
-        <div class=" d-flex p-2">
+        <div class=" d-flex p-2 justify-content-center">
           <CopyrightContent>
         © 2023, <a href="/" title="">Gaia Pvt. Ltd.</a>.
       </CopyrightContent>
