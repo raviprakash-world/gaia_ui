@@ -208,9 +208,9 @@ const Footer = () => {
     <>
       <MainContainer>
         <InnerContainer>
-          <Left>
+          <Left onClick={() => toggleDropdown(0)}>
           <ArrowIcon isOpen={isOpenList[0]}/>
-              <AccordionTitle onClick={() => toggleDropdown(0)}>BESTSELLERS</AccordionTitle>
+              <AccordionTitle >BESTSELLERS</AccordionTitle>
          
             
               <FooterUl isOpen={isOpenList[0]}><li>
@@ -232,10 +232,10 @@ const Footer = () => {
                               </li></FooterUl>
             
           </Left>
-          <Left>
+          <Left  onClick={() => toggleDropdown(1)}>
              <ArrowIcon  isOpen={isOpenList[1]}/>
          
-              <AccordionTitle onClick={() => toggleDropdown(1)}>INFORMATION</AccordionTitle>
+              <AccordionTitle >INFORMATION</AccordionTitle>
          
             
               <FooterUl isOpen={isOpenList[1]}><li>
@@ -257,8 +257,8 @@ const Footer = () => {
                               </li></FooterUl>
             
           </Left>
-          <Left> <ArrowIcon  isOpen={isOpenList[2]}/>
-         <AccordionTitle onClick={() => toggleDropdown(2)}>SUPPORT</AccordionTitle>
+          <Left onClick={() => toggleDropdown(2)}> <ArrowIcon  isOpen={isOpenList[2]}/>
+         <AccordionTitle >SUPPORT</AccordionTitle>
          <FooterUl isOpen={isOpenList[2]}><li>
                                 <FooterLink>
                                  About Us
@@ -285,8 +285,8 @@ const Footer = () => {
                               </FooterUl>
             
           </Left>
-          <Left> <ArrowIcon  isOpen={isOpenList[3]}/>
-         <AccordionTitle onClick={() => toggleDropdown(3)}>CONTACT US</AccordionTitle>
+          <Left onClick={() => toggleDropdown(3)}> <ArrowIcon  isOpen={isOpenList[3]}/>
+         <AccordionTitle >CONTACT US</AccordionTitle>
          <FooterUl isOpen={isOpenList[3]}><li>
                                 <FooterLink>
                                 123 Scent Street, Perfumeland
@@ -403,7 +403,7 @@ const Footer = () => {
       <OwnerDiv>
         <div class=" d-flex p-2">
           <CopyrightContent>
-        © 2023, <a href="/" title="">Bella Vita Organic (IDAM Natural Wellness Pvt. Ltd.)</a>.
+        © 2023, <a href="/" title="">Gaia Pvt. Ltd.</a>.
       </CopyrightContent>
           <ul class="policies list-unstyled">
       </ul>
