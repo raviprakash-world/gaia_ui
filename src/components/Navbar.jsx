@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BadgeIcon from '@mui/icons-material/Badge';
+import Badge from '@mui/material/Badge';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AddShoppingCartOutlinedIcon from '@mui/icons-material/AddShoppingCartOutlined';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -203,9 +203,9 @@ const Navbar = () => {
           <Item>
             <Link style={{ color: "inherit" }} to="/cart">
               <p>
-                <BadgeIcon color="primary" badgeContent={quantity}>
-                  <ShoppingCartIcon />
-                </BadgeIcon>
+                  <Badge badgeContent={quantity} color="error">
+                  <AddShoppingCartOutlinedIcon /></Badge>
+              
               </p>
             </Link>
           </Item>
@@ -325,9 +325,9 @@ const Navbar = () => {
           <Link style={{ color: "inherit" }} to="/cart">
             {" "}
             <p>
-              <BadgeIcon color="primary" badgeContent={quantity}>
-                <ShoppingCartIcon />
-              </BadgeIcon>
+                <Badge badgeContent={quantity} color="error">
+                <AddShoppingCartOutlinedIcon /></Badge>
+             
             </p>
           </Link>
         </Item>
