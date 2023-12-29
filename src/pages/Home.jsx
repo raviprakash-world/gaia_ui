@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import UpperAnnouncement from "../components/UpperAnnouncement.jsx";
 
 
 const MainContainer = styled.div`
@@ -10,7 +11,7 @@ const Home = () => {
   return (
     <div>
       <MainContainer>
-        HOME
+        <UpperAnnouncement />
       </MainContainer>
       
     </div>
