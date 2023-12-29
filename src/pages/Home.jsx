@@ -4,6 +4,9 @@ import UpperAnnouncement from "../components/UpperAnnouncement.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Banner from "../components/Banner.jsx";
+import LowerAnnouncement from "../components/LowerAnnouncement.jsx";
+import Slider from "../components/Slider.jsx";
+import Items from "../components/Items.jsx";
 
 
 const MainContainer = styled.div`
@@ -16,6 +19,9 @@ const Home = () => {
       <MainContainer>
         <UpperAnnouncement />
         <Navbar/>
+        <LowerAnnouncement/>
+        <Slider/>
+        <Items/>
         <Banner/>
         <Footer/>
       </MainContainer>
