@@ -16,7 +16,7 @@ const NavContainer = styled.div`
   width: 100%;
   background-color: #eeeeee;
   // opacity: 0.9;
-  z-index: 1;
+  z-index: 4;
   color: #232421;
 `;
 
