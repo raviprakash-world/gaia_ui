@@ -56,7 +56,7 @@ const Products = ({ filters }) => {
 
   const getProducts = async (filters) => {
     try {
-      let res = await publicRequest.get("/product", { params: filters });
+      let res = await publicRequest.get("", { params: filters });
       setProducts(res.data);
       setLoading(false);
     } catch (err) {
@@ -82,9 +82,7 @@ const Products = ({ filters }) => {
 
   return (
     <Container>
-      <div className="d-flex justify-content-center">
-          <TailSpin type="TailSpin" color="#25283D" height={100} width={100} />
-        </div>
+      
       {loading ? (
         <div className="d-flex justify-content-center">
           <TailSpin type="TailSpin" color="#25283D" height={100} width={100} />
