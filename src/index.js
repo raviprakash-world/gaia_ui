@@ -4,16 +4,21 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 
-//bootstrap css
+// Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import { persistor, store } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
+import { createRoot } from "react-dom/client"; // Import createRoot from react-dom/client
 
-ReactDOM.render(
+const root = document.getElementById("root");
+
+const rootElement = (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <App />
     </PersistGate>
-  </Provider>,
-  document.getElementById("root")
+  </Provider>
 );
+
+const appRoot = createRoot(root); // Use createRoot from react-dom/client
+appRoot.render(rootElement);
