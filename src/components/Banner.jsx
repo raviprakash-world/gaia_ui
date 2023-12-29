@@ -65,20 +65,6 @@ const BannerButton = styled.a`
 `;
 
 
-const VideoSection = styled.div`
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-`;
-
-const Video = styled.image`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
 const BannerImage = styled.img`
   width: 100%; 
   height: auto;
