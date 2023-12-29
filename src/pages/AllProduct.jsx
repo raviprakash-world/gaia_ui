@@ -26,23 +26,8 @@ const OuterContainer = styled.div`
   ${large({ margin: "2rem 0" })}
 `;
 
-const FilterContainer = styled.div`
-  width: 20rem;
-  min-width: 10rem;
-  padding: 15px;
 
-  position: sticky;
-  align-self: flex-start;
-  top: 50px;
-  height: 100vh;
-  overflow-y: auto;
-`;
 
-const SortBy = styled.div``;
-
-const BrandContainer = styled.div``;
-
-const CheckboxContainer = styled.div``;
 
 const ProductsContainer = styled.div``;
 
@@ -82,14 +67,11 @@ const AllProductList = () => {
     blush: false,
   });
 
-  //for slider values
-  const [minValue, set_minValue] = useState(10);
-  const [maxValue, set_maxValue] = useState(20);
+
 
   let tempMin, tempMax;
 
   //initial sort
-  const [sort, setSort] = useState("");
 
   let tempSort = "";
 
@@ -116,7 +98,7 @@ const AllProductList = () => {
       console.log(tempSort);
 
       setFilter({ ...filter, sort: tempSort });
-      console.log(sort);
+    
       console.log(filter);
     } else if (type === "price") {
       let price = `${tempMin},${tempMax}`;
@@ -142,22 +124,7 @@ const AllProductList = () => {
     handleFilter("product_type");
   };
 
-  //handle sort
-  const handleSort = ({ target: { value } }) => {
-    console.log("in", value);
-    setSort(value);
-    tempSort = value;
-    handleFilter("sort");
-  };
 
-  //handle input
-  const handleInput = (e) => {
-    set_minValue(e.minValue);
-    tempMin = e.minValue;
-    set_maxValue(e.maxValue);
-    tempMax = e.maxValue;
-    handleFilter("price");
-  };
 
   useEffect(() => {
     console.log("url location", location);
