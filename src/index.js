@@ -6,7 +6,7 @@ import { store } from "./redux/store";
 
 import App from "./App";
 //bootstrap css
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 // As of React 18
 const root = ReactDOM.createRoot(document.getElementById("root"));
