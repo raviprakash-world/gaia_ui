@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import UpperAnnouncement from "../components/UpperAnnouncement.jsx";
+import Navbar from "../components/Navbar.jsx";
 
 
 const MainContainer = styled.div`
@@ -12,6 +13,7 @@ const Home = () => {
     <div>
       <MainContainer>
         <UpperAnnouncement />
+        <Navbar/>
       </MainContainer>
       
     </div>
