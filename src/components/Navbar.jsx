@@ -242,7 +242,7 @@ const Navbar = () => {
        
           < Dropdown style={{ display: perfumesSelect ? 'block' : 'none' }}>
             <Link
-              to="/allproducts"
+              to="/products"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               {" "}
@@ -252,7 +252,7 @@ const Navbar = () => {
               </Item>
             </Link>
             <Link
-              to="/allproducts"
+              to="/products"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               {" "}
@@ -262,7 +262,7 @@ const Navbar = () => {
               </Item>
             </Link>
             <Link
-              to="/allproducts"
+              to="/products"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               {" "}

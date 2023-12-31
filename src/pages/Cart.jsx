@@ -22,6 +22,7 @@ const TopButtons = styled.div`
   justify-content: space-between;
   margin: 2rem 8rem;
   ${medium({ margin: "2rem 1rem" })}
+  align-items: center;
 `;
 const Button = styled.div`
   border: none;
@@ -138,12 +139,12 @@ const Cart = () => {
         <LowerAnnouncement />
         <TopButtons>
           <div>
-            <Link to="/products">
+            <Link to="/products" style={{textDecoration: 'none'}}>
               <Button>Continue To Shop</Button>
             </Link>
           </div>
           <div>
-            <h1>Your Bag</h1>
+            <h5>SHOPPING BAG</h5>
           </div>
         </TopButtons>
         <Container>

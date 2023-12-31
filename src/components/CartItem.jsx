@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { medium, small } from "../responsive";
+import { small } from "../responsive";
 
 //styled comp
 
@@ -20,8 +20,6 @@ const CartContainer = styled.div`
   background-color: white;
   border: none;
   border-bottom: 2px solid #888;
-  ${medium({ gap: "2rem" })}
-  ${small({ flexDirection: "column" })}
 `;
 const ImageContainer = styled.div`
   width: 100px;
@@ -32,9 +30,9 @@ const ImageContainer = styled.div`
 `;
 const DetailsContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  ${small({ flexDirection: "column" })}
 `;
 const ShadeSingle = styled.div`
   height: 1.5rem;
@@ -50,20 +48,13 @@ const QuantityContainer = styled.div`
   min-width: 11rem;
   display: flex;
   flex-direction: column;
-  padding: 10px;
   justify-content: space-around;
   ${small({ marginLeft: "0" })}
 `;
-// const CartButton=styled.button`
-// border: none;
-// background-color: white;
-// cursor: pointer;
-// margin-right: 1rem;
-// margin-left: 1rem;
-// `
+
 const Button = styled.button`
   border: none;
-  background-color: #4dc52f;
+  background-color: #232421;
   border-radius: 5px;
   color: white;
   font-weight: 700;
@@ -73,6 +64,11 @@ const Button = styled.button`
 
   padding: 5px 15px;
 `;
+
+const Para = styled.p`
+     margin: 0;
+`;
+
 
 const CartItem = () => {
   const dispatch = useDispatch();
@@ -95,11 +91,12 @@ const CartItem = () => {
                 />
               </ImageContainer>
               <DetailsContainer>
+                <QuantityContainer>
                 <div>
-                  <h2>{product.name}</h2>
+                  <h5>{product.name}</h5>
                 </div>
                 <div>
-                  <p>{product.brand}</p>
+                  <Para>{product.brand}</Para>
                 </div>
                 {product.product_colors && (
                   <div>
@@ -109,18 +106,18 @@ const CartItem = () => {
                     ></ShadeSingle>
                   </div>
                 )}
-              </DetailsContainer>
+              </QuantityContainer>
               <QuantityContainer>
                 <div>
-                  <h4 style={{ display: "inline-block" }}>Quantity:</h4>
-                  <h4 style={{ display: "inline-block" }}>
+                  <h6 style={{ display: "inline-block" }}>Quantity:</h6>
+                  <h6 style={{ display: "inline-block" }}>
                     {product.quantity}
-                  </h4>
+                  </h6>
                 </div>
                 <div>
-                  <h3 style={{ marginLeft: "3.5rem", fontSize: "1.5rem" }}>
+                  <h4 style={{ marginLeft: "3.5rem", fontSize: "1.5rem" }}>
                     {product.quantity * product.price} $
-                  </h3>
+                  </h4>
                 </div>
                 <div className="mx-auto">
                   <Button
@@ -136,6 +133,7 @@ const CartItem = () => {
                   </Button>
                 </div>
               </QuantityContainer>
+              </DetailsContainer>
             </CartContainer>
           </>
         );

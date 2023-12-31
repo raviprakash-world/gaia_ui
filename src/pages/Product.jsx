@@ -196,6 +196,7 @@ const handleSizeSelection = (sizeId) => {
       }
     }
   };
+  
 
   //add cart
   const handleCart = () => {
@@ -204,18 +205,19 @@ const handleSizeSelection = (sizeId) => {
     let variants = selectedSize;
     let cartProduct = { ...product, quantity, product_colors ,variants };
     console.log(cartProduct);
-    if (quantity.length > 0) {
-      if (quantity.length > 0) {
+    console.log(cartProduct.variants.length );
+    if (cartProduct.variants.length > 0) {
+      if (cartProduct.variants.length > 0) {
         setAlert(true);
         dispatch({ type: "addProduct", payload: cartProduct });
         setError(false);
       } else {
         setError(true);
+        setSizeError(true)
       }
     } else {
-      setAlert(true);
-      dispatch({ type: "addProduct", payload: cartProduct });
-      setError(false);
+      
+      setSizeError(true);
     }
   };
 
