@@ -278,7 +278,7 @@ zIndex: '10'
                 <ProductDesc>
                   <p style={{ color: "grey" }}>{product.description}</p>
                 </ProductDesc>
-                {/* {shades.length > 1 && (
+                {shades.length > 1 && (
                   <ShadesContainer>
                     {product.product_colors &&
                     product.product_colors.length > 0 ? (
@@ -308,7 +308,7 @@ zIndex: '10'
                       <></>
                     )}
                   </ShadesContainer>
-                )} */}
+                )}
                 <CartContainer>
                   <QuantityContainer>
                     <Button
