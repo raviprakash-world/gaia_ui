@@ -1,7 +1,7 @@
 
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Toast, ToastContainer } from "react-bootstrap";
 import {TailSpin} from "react-loader-spinner";
 import { useDispatch } from "react-redux";
@@ -130,22 +130,23 @@ const Product = () => {
   const [error, setError] = useState(false);
   const [scrollingUp, setScrollingUp] = useState(false);
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
-    if (scrollY > 0 && !scrollingUp) {
-      setScrollingUp(true);
-    } else if (scrollY === 0 && scrollingUp) {
-      setScrollingUp(false);
-    }
+const handleScroll = useCallback(() => {
+  const scrollY = window.scrollY;
+  if (scrollY > 0 && !scrollingUp) {
+    setScrollingUp(true);
+  } else if (scrollY === 0 && scrollingUp) {
+    setScrollingUp(false);
+  }
+}, [scrollingUp]);
+
+useEffect(() => {
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
   };
+}, [handleScroll]);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollingUp]);
 
   const getProduct = async (id) => {
     try {
