@@ -102,6 +102,15 @@ const Button = styled.div`
 const AddToCartContainer = styled.div`
   margin: 1.5rem 0;
 `;
+const SizeSelectbutton = styled.button`
+  background-color: transparent;
+  font-weight: 200;
+  border-radius: 7px;
+ 
+  border: none;
+  cursor: pointer;
+  height: 100%;
+`;
 const CartButton = styled.div`
   background-color: #4e4a4a;
   padding: 5px 30px;
@@ -123,6 +132,8 @@ const Product = () => {
   console.log("product details", product);
   const [loading, setLoading] = useState(true);
   let [shadeIn, setShade] = React.useState("");
+   const [selectedSize, setSelectedSize] = useState('');
+  const [sizeError, setSizeError] = useState(false);
   let [quantity, setQuantity] = React.useState(1);
   console.log(id);
   const dispatch = useDispatch();
@@ -170,6 +181,12 @@ useEffect(() => {
     setShade(value);
   };
 
+const handleSizeSelection = (sizeId) => {
+  setSelectedSize(sizeId);
+  setSizeError(false); // Reset size selection error
+  // Add further logic as needed based on the selected size
+};
+
   //inc or dec
   const handleQuantity = (value) => {
     if (value === "inc") {
@@ -185,7 +202,8 @@ useEffect(() => {
   const handleCart = () => {
     console.log(product);
     let product_colors = shadeIn;
-    let cartProduct = { ...product, quantity, product_colors };
+    let variants_size = selectedSize;
+    let cartProduct = { ...product, quantity, product_colors ,variants_size };
     console.log(cartProduct);
     if (quantity.length > 0) {
       if (quantity.length > 0) {
@@ -310,6 +328,28 @@ zIndex: '10'
                     )}
                   </ShadesContainer>
                 )}
+// Inside your render/return statement:
+{product.variants && product.variants.length > 0 && (
+  <div>
+    <h5>Choose Size</h5>
+    <div>
+      {product.variants[0].values.map((size, index) => (
+        <SizeSelectbutton
+          key={index}
+          onClick={() => handleSizeSelection(size.id)}
+          style={{ fontWeight: selectedSize === size.id ? "800" : "" }}
+        >
+          {size.displayValue}
+        </SizeSelectbutton>
+      ))}
+    </div>
+    {sizeError && (
+      <p style={{ color: "red", marginTop: "5px" }}>
+        Please select a size
+      </p>
+    )}
+  </div>
+)}
                 <CartContainer>
                   <QuantityContainer>
                     <Button

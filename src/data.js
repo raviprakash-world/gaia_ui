@@ -79,3 +79,52 @@ export const shades = [
     colour_name: "Brown ",
   },
 ];
+export const variants = [
+  {
+    attributeId: "size",
+    displayName: "Size",
+    id: "size",
+    swatchable: false,
+    displayValue: "",
+    values: [
+      {
+        id: "200ml",
+        description: null,
+        displayValue: "200ml",
+        value: "200ml",
+        selected: false,
+        selectable: true,
+        url: "https://www.franciskurkdjian.com/on/demandware.store/Sites-MFK_XBORDER-Site/en/Product-Variation?dwvar_10222021_size=200ml&pid=10222021&quantity=1",
+      },
+      {
+        id: "70ml",
+        description: null,
+        displayValue: "70ml",
+        value: "70ml",
+        selected: false,
+        selectable: true,
+        url: "https://www.franciskurkdjian.com/on/demandware.store/Sites-MFK_XBORDER-Site/en/Product-Variation?dwvar_10222021_size=70ml&pid=10222021&quantity=1",
+      },
+      {
+        id: "35ml",
+        description: null,
+        displayValue: "35ml",
+        value: "35ml",
+        selected: false,
+        selectable: true,
+        url: "https://www.franciskurkdjian.com/on/demandware.store/Sites-MFK_XBORDER-Site/en/Product-Variation?dwvar_10222021_size=35ml&pid=10222021&quantity=1",
+      },
+      {
+        id: "3x11ml",
+        description: "3 x 0.37 fl.oz. refills",
+        displayValue: "3x11ml",
+        value: "3x11ml",
+        selected: false,
+        selectable: true,
+        url: "https://www.franciskurkdjian.com/on/demandware.store/Sites-MFK_XBORDER-Site/en/Product-Variation?dwvar_10222021_size=3x11ml&pid=10222021&quantity=1",
+      },
+    ],
+    resetUrl:
+      "https://www.franciskurkdjian.com/on/demandware.store/Sites-MFK_XBORDER-Site/en/Product-Variation?dwvar_10222021_size=&pid=10222021&quantity=1",
+  },
+];
