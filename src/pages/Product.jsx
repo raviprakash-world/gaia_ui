@@ -328,7 +328,6 @@ zIndex: '10'
                     )}
                   </ShadesContainer>
                 )}
-// Inside your render/return statement:
 {product.variants && product.variants.length > 0 && (
   <div>
     <h5>Choose Size</h5>
