@@ -11,9 +11,10 @@ export const cartReducer = (state = initialState, action) => {
     case "addProduct": {
       console.log(action.payload);
       console.log("Product state:", state);
-      state.products.push(action.payload);
+      const newProduct = action.payload;
       return {
         ...state,
+        products: [...state.products, newProduct],
         quantity: state.quantity + 1,
         total: state.total + action.payload.price * action.payload.quantity,
       };

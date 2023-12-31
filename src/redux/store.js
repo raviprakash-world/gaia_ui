@@ -1,37 +1,29 @@
-import * as redux from "redux";
-import { cartReducer } from "./cartReducer";
-import { userReducer } from "./userReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { encryptTransform } from "redux-persist-transform-encrypt";
-import { persistReducer, persistStore } from "redux-persist";
-import { searchReducer } from "./searchReducer";
+import rootReducer from "./reducers"; // Combine your reducers into a root reducer
+
+const encryptor = encryptTransform({
+  secretKey: "muthu@123",
+  onError: function (error) {
+    console.log(error);
+  },
+});
 
 const persistConfig = {
   key: "root",
   storage,
-  tranforms: [
-    encryptTransform({
-      secretKey: "muthu@123",
-      onError: function (error) {
-        console.log(error);
-      },
-    }),
-  ],
+  transforms: [encryptor],
 };
 
-const enhancers = redux.compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-const rootReducer = redux.combineReducers({
-  user: userReducer,
-  cart: cartReducer,
-  search: searchReducer,
-});
-
-//persist reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = redux.createStore(persistedReducer, enhancers);
+const store = configureStore({
+  reducer: persistedReducer,
+  devTools: process.env.NODE_ENV !== "production",
+});
 
-export let persistor = persistStore(store);
+const persistor = persistStore(store);
+
+export { store, persistor };

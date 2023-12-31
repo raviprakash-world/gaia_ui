@@ -132,31 +132,31 @@ const Product = () => {
   console.log("product details", product);
   const [loading, setLoading] = useState(true);
   let [shadeIn, setShade] = React.useState("");
-   const [selectedSize, setSelectedSize] = useState('');
+const [selectedSize, setSelectedSize] = useState('');
   const [sizeError, setSizeError] = useState(false);
   let [quantity, setQuantity] = React.useState(1);
-  console.log(id);
+ 
   const dispatch = useDispatch();
   const [alert, setAlert] = useState(false);
   const [error, setError] = useState(false);
   const [scrollingUp, setScrollingUp] = useState(false);
 
-const handleScroll = useCallback(() => {
-  const scrollY = window.scrollY;
-  if (scrollY > 0 && !scrollingUp) {
-    setScrollingUp(true);
-  } else if (scrollY === 0 && scrollingUp) {
-    setScrollingUp(false);
-  }
-}, [scrollingUp]);
+  const handleScroll = useCallback(() => {
+    const scrollY = window.scrollY;
+    if (scrollY > 0 && !scrollingUp) {
+      setScrollingUp(true);
+    } else if (scrollY === 0 && scrollingUp) {
+      setScrollingUp(false);
+    }
+  }, [scrollingUp]);
 
-useEffect(() => {
-  window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, [handleScroll]);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [handleScroll]);
 
 
   const getProduct = async (id) => {
@@ -164,7 +164,6 @@ useEffect(() => {
       console.log("in product");
       //id getting from url params ;
       let res = await publicRequest.get(`/product/${id}`);
-      console.log(res);
       setProduct(res.data);
       setLoading(false);
     } catch (error) {
@@ -179,13 +178,13 @@ useEffect(() => {
   //handleshade
   const handleShade = (value) => {
     setShade(value);
-  };
+};
 
 const handleSizeSelection = (sizeId) => {
   setSelectedSize(sizeId);
   setSizeError(false); // Reset size selection error
   // Add further logic as needed based on the selected size
-};
+  };
 
   //inc or dec
   const handleQuantity = (value) => {
@@ -202,8 +201,8 @@ const handleSizeSelection = (sizeId) => {
   const handleCart = () => {
     console.log(product);
     let product_colors = shadeIn;
-    let variants_size = selectedSize;
-    let cartProduct = { ...product, quantity, product_colors ,variants_size };
+    let variants = selectedSize;
+    let cartProduct = { ...product, quantity, product_colors ,variants };
     console.log(cartProduct);
     if (quantity.length > 0) {
       if (quantity.length > 0) {
@@ -327,7 +326,7 @@ zIndex: '10'
                       <></>
                     )}
                   </ShadesContainer>
-                )}
+)}
 {product.variants && product.variants.length > 0 && (
   <div>
     <h5>Choose Size</h5>
@@ -348,7 +347,7 @@ zIndex: '10'
       </p>
     )}
   </div>
-)}
+                )}
                 <CartContainer>
                   <QuantityContainer>
                     <Button
